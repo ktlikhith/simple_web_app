@@ -19,11 +19,21 @@ pipeline {
                 sh 'npm run build' 
             }
         }
-        stage ('Zip Artifacts'){
-            steps{
-                sh 'zip -r $GIT_COMMIT.zip dist/'
+        stage('Zip Artifacts') {
+            steps {
+                
+                sh '''
+                if ! command -v zip &> /dev/null
+                then
+                    echo "zip could not be found, installing..."
+                    sudo apt-get update && sudo apt-get install -y zip
+                fi
+                '''
+               
+                sh "zip -r ${GIT_COMMIT}.zip dist/"
             }
         }
+
         stage ('upload to s3'){
             steps{
                 sh 'aws s3 cp $GIT_COMMIT.zip '
