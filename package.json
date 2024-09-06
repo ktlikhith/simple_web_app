@@ -5,7 +5,7 @@
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
-    "build": "npm run clean && cp -r src dist/src && cp -r public dist/public &&   cp *.json dist && cp README.md dist  ",
+    "build": "npm run clean && cp -r src dist/src && cp -r public dist/public &&   cp *.json dist &&  cp *.yml dist && cp README.md dist && cp -r scripts dist/scripts  ",
     "clean": "rimraf dist && mkdirp dist"
   },
   "dependencies": {
