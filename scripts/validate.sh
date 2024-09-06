@@ -1,6 +1,6 @@
 #!/bin/bash
 sleep 10s
-status_code=$(curl --write-out %{http_code} --silent --output /dev/null http://localhost:3000)
+status_code=$(curl --write-out %{http_code} --silent --output /dev/null http://localhost:80)
 if [ "$status_code" -eq 200 ] ; then
   echo "Service is working fine"
   exit 0
