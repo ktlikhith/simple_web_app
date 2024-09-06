@@ -24,7 +24,7 @@ pipeline {
         
         stage('codedeploy'){
           steps {
-            step([$class: 'AWSCodeDeployPublisher', applicationName: 'nodejs_application', deploymentGroupAppspec: false, deploymentGroupName: 'nodejs_deploymentgroup', excludes: '', iamRoleArn: '', includes: 'dist/', proxyHost: '', proxyPort: 0, region: 'ap-south-1', s3bucket: 'nodejswebapp', s3prefix: '', subdirectory: '', versionFileName: '', waitForCompletion: false])
+            step([$class: 'AWSCodeDeployPublisher', applicationName: 'nodejsapp_dagenteploy', deploymentGroupAppspec: false, deploymentGroupName: 'nodejsapp_dagenteploy_group', excludes: '', iamRoleArn: '', includes: 'dist/', proxyHost: '', proxyPort: 0, region: 'ap-south-1', s3bucket: 'nodejswebapp', s3prefix: '', subdirectory: '', versionFileName: '', waitForCompletion: false])
            }
         }
     }
